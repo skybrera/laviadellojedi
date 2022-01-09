@@ -4,6 +4,8 @@
 
 
 use App\Http\Controllers\JediController;
+use App\Http\Controllers\QuoteController;
+
 
 
 /*
@@ -20,13 +22,23 @@ use App\Http\Controllers\JediController;
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-
-
-
-
 // $router->get('user/{id}', 'UserController@show');
 
 
-$router->get('/jedi', 'JediController@index');
-$router->get('/jedi/random', 'JediController@random');
-$router->get('/jedi/{jediName}', 'JediController@show');
+
+$router->group(['prefix' => 'api/v1'], function () use ($router) {
+
+    // $router->group(['prefix' => 'jedi'], function () use ($router) {
+    //     $router->get('/', 'JediController@index');
+    //     $router->get('/random', 'JediController@random');
+    //     $router->get('/{jediName}', 'JediController@show');
+    // });
+    
+    
+    $router->group(['prefix' => 'quotes'], function () use ($router) {
+        $router->get('/', 'QuoteController@index');
+        $router->get('/random', 'QuoteController@random');
+        $router->get('/{id}', 'QuoteController@show');
+    });
+    
+});
