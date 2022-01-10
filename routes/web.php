@@ -20,7 +20,8 @@ use App\Http\Controllers\QuoteController;
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    // return $router->app->version();
+    return view('home');
 });
 // $router->get('user/{id}', 'UserController@show');
 
