@@ -1,3 +1,14 @@
+# SUL PROGETTO
+
+Il progetto è nato per fornire una semplice serie di Api (Application Program Interface) e permettere così di generare
+casualmente le citazioni più importanti provenienti dal mondo di Star Wars
+
+Il progetto è gratuito e liberamente utilizzabile.
+
+Tutti i marchi appartengono ai rispettivi proprietari e non vengono utilizzati da me per trarne profitto
+
+
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
