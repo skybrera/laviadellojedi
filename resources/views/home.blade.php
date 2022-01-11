@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>La Via dello Jedi</title>
+    <title>La Via del Jedi</title>
     <meta name="description" content="Una semplice API per la visualizzazion casuale di citazioni di Star Wars" />
     <meta name="keywords" content="" />
     <link rel="icon" href="public/images/ordine_jedi_icon.png">
@@ -37,7 +37,7 @@
             Rain<span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">blur</span>
           </a> -->
          <a class="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-          La via dello Jedi
+          La via del Jedi
          </a>
 
          <button
@@ -137,7 +137,7 @@
                     >
                     GET
                     </button> 
-                    https://laviadellojedi.it/api/v1/quotes
+                    https://laviadeljedi.it/api/v1/quotes
                 </code>
             </p>
  
@@ -154,7 +154,7 @@
                     >
                     GET
                     </button> 
-                        https://laviadellojedi.it/api/v1/quotes/random
+                        https://laviadeljedi.it/api/v1/quotes/random
                     </code>
                 </p>
             </div>
@@ -218,7 +218,7 @@
                     <code class="inline-block">
                         {
                           "method" : "GET",
-                          "path"   : "https://laviadellojedi.it/api/v1/quotes"
+                          "path"   : "https://laviadeljedi.it/api/v1/quotes"
                         }
                     </code>
                 </p>
@@ -229,7 +229,7 @@
                     <code>
                         {
                           "method" : "GET",
-                          "path"   : "https://laviadellojedi.it/api/v1/quotes/random"
+                          "path"   : "https://laviadeljedi.it/api/v1/quotes/random"
                         }
                     </code>
                 </p>
