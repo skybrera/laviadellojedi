@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Http\JsonResponse;
 use App\Models\Quote;
 
 class QuoteController extends Controller
@@ -17,7 +19,7 @@ class QuoteController extends Controller
     }
 
 
-    public function index(){
+    public function index(): JsonResponse{
         $resultFromQuery = Quote::with('jedi')->with('film')->get();
         $quotes = [];
 
@@ -40,7 +42,7 @@ class QuoteController extends Controller
 
 
 
-    public function show( $id ){
+    public function show( $id ): JsonResponse{
         $resultFromQuery = Quote::find($id);
         $result = [
             "nome"  => $resultFromQuery->jedi->nome,
@@ -57,7 +59,7 @@ class QuoteController extends Controller
     }
 
 
-    public function random(){
+    public function random(): JsonResponse{
         $numberOfQuotes = Quote::count();
         $randomNumber = rand(1, $numberOfQuotes);
         
