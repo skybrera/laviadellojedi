@@ -5,7 +5,7 @@
 
 use App\Http\Controllers\JediController;
 use App\Http\Controllers\QuoteController;
-
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -19,11 +19,11 @@ use App\Http\Controllers\QuoteController;
 |
 */
 
-$router->get('/', function () use ($router) {
-    // return $router->app->version();
-    return view('home');
-});
-// $router->get('user/{id}', 'UserController@show');
+// $router->get('/', function () use ($router) {
+//     // return $router->app->version();
+//     return view('home');
+// });
+$router->get('/', 'HomeController@index');
 
 
 

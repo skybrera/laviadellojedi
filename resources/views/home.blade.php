@@ -137,7 +137,7 @@
                     >
                     GET
                     </button> 
-                    https://laviadeljedi.it/api/v1/quotes
+                    {{$basepath}}api/v1/quotes
                 </code>
             </p>
  
@@ -154,7 +154,7 @@
                     >
                     GET
                     </button> 
-                        https://laviadeljedi.it/api/v1/quotes/random
+                    {{$basepath}}api/v1/quotes/random
                     </code>
                 </p>
             </div>
