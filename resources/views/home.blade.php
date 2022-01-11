@@ -23,9 +23,12 @@
         font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </head>
 
-  <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('public/header.png');">
+  <body 
+    x-data="{ utilizzo: false, info: false}"
+    class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('public/header.png');">
     <div class="h-full">
       <!--Nav-->
       <div class="w-full container mx-auto">
@@ -37,6 +40,18 @@
           La via dello Jedi
          </a>
 
+         <button
+            class="bg-indigo-900 font-semibold text-white p-2 w-32 rounded-full hover:bg-indigo-800 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
+            @click="utilizzo = true"
+          >
+            Utilizzo
+          </button>
+          <button
+            class="bg-indigo-900 font-semibold text-white p-2 w-32 rounded-full hover:bg-indigo-800 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300 m-2"
+            @click="info = true"
+          >
+            Info
+          </button>
 
 
           <div class="flex w-1/2 justify-end content-center">
@@ -116,6 +131,12 @@
                 Per recuperare tutte le citazioni
                 <br>
                 <code class="inline-block">
+                    <button
+                      class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                      type="button"
+                    >
+                    GET
+                    </button> 
                     https://laviadellojedi.it/api/v1/quotes
                 </code>
             </p>
@@ -127,6 +148,12 @@
                     Per recuperare una citazione casuale
                     <br>
                     <code>
+                    <button
+                      class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                      type="button"
+                    >
+                    GET
+                    </button> 
                         https://laviadellojedi.it/api/v1/quotes/random
                     </code>
                 </p>
@@ -145,5 +172,187 @@
         </div>
       </div>
     </div>
+
+
+    <!-- inizio modal utilizzo  -->
+    <div
+      class="fixed inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
+      x-show="utilizzo"
+      x-transition:enter="transition duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+    >
+      <div class="relative sm:w-3/4 md:w-1/2 lg:w-1/3 mx-2 sm:mx-auto my-10 opacity-100">
+        <div
+          class="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
+          @click.away="utilizzo = false"
+          x-show="utilizzo"
+          x-transition:enter="transition transform duration-300"
+          x-transition:enter-start="scale-0"
+          x-transition:enter-end="scale-100"
+          x-transition:leave="transition transform duration-300"
+          x-transition:leave-start="scale-100"
+          x-transition:leave-end="scale-0"
+        >
+          <header class="flex items-center justify-between p-2">
+            <h2 class="font-semibold">Utilizzo</h2>
+            <button class="focus:outline-none p-2" @click="utilizzo = false">
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                ></path>
+              </svg>
+            </button>
+          </header>
+          <main class="p-2 text-center">
+              <div class="mx-auto">
+                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
+                  REQUEST:
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                    Per recuperare tutte le citazioni
+                    <br>
+                    <code class="inline-block">
+                        {
+                          "method" : "GET",
+                          "path"   : "https://laviadellojedi.it/api/v1/quotes"
+                        }
+                    </code>
+                </p>
+
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                    Per recuperare una citazione casuale
+                    <br>
+                    <code>
+                        {
+                          "method" : "GET",
+                          "path"   : "https://laviadellojedi.it/api/v1/quotes/random"
+                        }
+                    </code>
+                </p>
+
+              </div>
+              <div class="mx-auto">
+                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
+                  RESPONSE:
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+
+                    <code class="inline-block">
+                      {
+                        "success": "true",
+                        "message": "",
+                        "data": {
+                            "nome": "Obi-Wan Kenobi",
+                            "film": "Una nuova speranza",
+                            "anno": "0000-00-00",
+                            "quote": "Questi non sono i droidi che state cercando"
+                        }
+                      }
+                    </code>
+                </p>
+
+              </div>
+          </main>
+          <footer class="flex justify-center p-2">
+            <button
+              class="bg-red-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-red-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
+              @click="utilizzo = false"
+            >
+              Chiudi
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- fine modal utilizzo  -->
+
+
+    <!-- inizio modal info  -->
+    <div
+      class="fixed inset-0 w-full h-full z-20 bg-black bg-opacity-50 duration-300 overflow-y-auto"
+      x-show="info"
+      x-transition:enter="transition duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition duration-300"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+    >
+      <div class="relative sm:w-3/4 md:w-1/2 lg:w-1/3 mx-2 sm:mx-auto my-10 opacity-100">
+        <div
+          class="relative bg-white shadow-lg rounded-md text-gray-900 z-20"
+          @click.away="info = false"
+          x-show="info"
+          x-transition:enter="transition transform duration-300"
+          x-transition:enter-start="scale-0"
+          x-transition:enter-end="scale-100"
+          x-transition:leave="transition transform duration-300"
+          x-transition:leave-start="scale-100"
+          x-transition:leave-end="scale-0"
+        >
+          <header class="flex items-center justify-between p-2">
+            <h2 class="font-semibold">Info</h2>
+            <button class="focus:outline-none p-2" @click="info = false">
+              <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path
+                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                ></path>
+              </svg>
+            </button>
+          </header>
+          <main class="p-2 text-center">
+              <div class="mx-auto">
+                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
+                  Utilizzo del marchio:
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                Tutti i marchi utilizzati in questo progetto appartengono ai rispettivi proprietari
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                Questo progetto è GRATUITO e liberamente accessibile.
+                </p>
+
+              </div>
+              <div class="mx-auto">
+                <p class="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
+                  Sul progetto:
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                  Lo scopo del progetto è quello di mettere a disposizione di tutti le migliori citazioni dell'universo di
+                      Star Wars, in maniera gratuita.
+                </p>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                  Questi film hanno da dire molto sulla natura dell'uomo e su ciò che è in grado di fare.<br>
+                  Ed insegnano le conseguenze di ogni azione intrapresa.
+                </p>
+                <h3>Sta ad ognuno di noi fare la scelta giusta.</h3>
+                <hr>
+                <p class="leading-normal text-base md:text-1xl mb-8">
+                  Il sito web non utilizza nessun cookie, ne statistico ne di sistema.<br>
+                  Non salva dati personali e non analizza il comportamento degli utenti.
+                </p>
+              </div>
+          </main>
+          <footer class="flex justify-center p-2">
+            <button
+              class="bg-red-600 font-semibold text-white p-2 w-32 rounded-full hover:bg-red-700 focus:outline-none focus:ring shadow-lg hover:shadow-none transition-all duration-300"
+              @click="info = false"
+            >
+              Chiudi
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- fine modal info  -->
+
+
+
+
+
   </body>
 </html>
