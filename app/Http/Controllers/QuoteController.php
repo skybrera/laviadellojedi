@@ -31,7 +31,11 @@ class QuoteController extends Controller
             $quotes[] = $quote;
         }
 
-        return response()->json($quotes);
+        return response()->json([
+            "success" => "true",
+            "message" => "",
+            "data" => $quotes
+        ], 200);
     }
 
 
@@ -45,7 +49,11 @@ class QuoteController extends Controller
             "quote" => $resultFromQuery->quote,
         ];
 
-        return response()->json($result);
+        return response()->json([
+            "success" => "true",
+            "message" => "",
+            "data" => $result
+        ], 200);
     }
 
 
@@ -62,7 +70,11 @@ class QuoteController extends Controller
             "quote" => $resultFromQuery->quote,
         ];
 
-        return response()->json($result);
+        return response()->json([
+            "success" => "true",
+            "message" => "",
+            "data" => $result
+        ], 200);
     }
     
 }
