@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jedi;
+
 class JediController extends Controller
 {
     /**
@@ -16,24 +18,23 @@ class JediController extends Controller
 
 
     public function index(){
-        return 'Tutti i Jedi';
+        return Jedi::all();
     }
 
 
-
-    public function show( $jediName ){
-        return "Hai selezionalo Il Jedi: " . $jediName;
+    public function withQuotes(){
+        return Jedi::with('quote')->get();
     }
 
 
-    public function random(){
-        $result = [
-            "nome" => "Dart Vadher",
-            "citazione" => "Io sono tuo padre",
-            "film" => "L'impero colpisce ancora"
-        ];
-
-        return response()->json($result);
+    public function show( string $jediName ){
+        return Jedi::where("nome", "=", $jediName)->get();
     }
+
+
+    public function showWithQuotes( string $jediName ){
+        return Jedi::with('quote')->where("nome", $jediName)->get();
+    }
+
     
 }

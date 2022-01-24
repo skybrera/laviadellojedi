@@ -31,9 +31,14 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
     // $router->group(['prefix' => 'jedi'], function () use ($router) {
     //     $router->get('/', 'JediController@index');
-    //     $router->get('/random', 'JediController@random');
     //     $router->get('/{jediName}', 'JediController@show');
     // });
+
+    $router->get('/jedi', 'JediController@index');
+    $router->get('/jedi/withQuotes', 'JediController@withQuotes');
+    $router->get('/jedi/{jediName}', 'JediController@show');
+    $router->get('/jedi/{jediName}/withQuotes', 'JediController@showWithQuotes');
+    
     
     
     $router->group(['prefix' => 'quotes'], function () use ($router) {
