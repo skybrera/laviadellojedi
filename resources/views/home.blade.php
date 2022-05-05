@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </head>
 
-  <body 
+  <body
     x-data="{ utilizzo: false, info: false}"
     class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('public/header.png');">
     <div class="h-full">
@@ -124,24 +124,23 @@
             Utilizzo:
           </p>
 
-          <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-            <!-- <img src="App Store.svg" class="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" /> -->
-            <!-- <img src="images/laviadellojedi.it.jpg" width="400" height="200" class="h-12 transform hover:scale-125 duration-300 ease-in-out" /> -->
-            <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-center">
-                Per recuperare tutte le citazioni
-                <br>
-                <code class="inline-block">
-                    <button
-                      class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-                      type="button"
-                    >
-                    GET
-                    </button> 
-                    {{$basepath}}api/v1/quotes
-                </code>
-            </p>
- 
-          </div>
+            <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+              <!-- <img src="App Store.svg" class="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" /> -->
+              <!-- <img src="images/laviadellojedi.it.jpg" width="400" height="200" class="h-12 transform hover:scale-125 duration-300 ease-in-out" /> -->
+              <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-center">
+                  Per recuperare tutte le citazioni
+                  <br>
+                  <code class="inline-block">
+                      <button
+                        class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                        type="button"
+                      >
+                      GET
+                      </button>
+                      {{$basepath}}api/v1/quotes
+                  </code>
+              </p>
+            </div>
 
             <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-center">
@@ -153,8 +152,24 @@
                       type="button"
                     >
                     GET
-                    </button> 
+                    </button>
                     {{$basepath}}api/v1/quotes/random
+                    </code>
+                </p>
+            </div>
+
+            <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+                <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-center">
+                    Per recuperare un film con le citazioni correlate
+                    <br>
+                    <code>
+                    <button
+                      class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                      type="button"
+                    >
+                    GET
+                    </button>
+                    {{$basepath}}api/v1/films/true
                     </code>
                 </p>
             </div>
