@@ -34,7 +34,7 @@ class QuoteController extends Controller
         }
 
         return response()->json([
-            "success" => "true",
+            "success" => true,
             "message" => "",
             "data" => $quotes
         ], 200);
@@ -52,7 +52,7 @@ class QuoteController extends Controller
         ];
 
         return response()->json([
-            "success" => "true",
+            "success" => true,
             "message" => "",
             "data" => $result
         ], 200);
@@ -73,7 +73,7 @@ class QuoteController extends Controller
         ];
 
         return response()->json([
-            "success" => "true",
+            "success" => true,
             "message" => "",
             "data" => $result
         ], 200);

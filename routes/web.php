@@ -26,19 +26,14 @@ use App\Http\Controllers\HomeController;
 $router->get('/', 'HomeController@index');
 
 
-
 $router->group(['prefix' => 'api/v1'], function () use ($router) {
 
-    // $router->group(['prefix' => 'jedi'], function () use ($router) {
-    //     $router->get('/', 'JediController@index');
-    //     $router->get('/{jediName}', 'JediController@show');
-    // });
-
-    $router->get('/jedi', 'JediController@index');
-    $router->get('/jedi/withQuotes', 'JediController@withQuotes');
-    $router->get('/jedi/{jediName}', 'JediController@show');
-    $router->get('/jedi/{jediName}/withQuotes', 'JediController@showWithQuotes');
-    
+    $router->group(['prefix' => 'jedi'], function () use ($router) {
+        $router->get('/', 'JediController@index');
+        $router->get('/withQuotes', 'JediController@withQuotes');
+        $router->get('/{jediName}', 'JediController@show');
+        $router->get('/{jediName}/withQuotes', 'JediController@showWithQuotes');
+    });    
     
     
     $router->group(['prefix' => 'quotes'], function () use ($router) {
@@ -46,5 +41,8 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
         $router->get('/random', 'QuoteController@random');
         $router->get('/{id}', 'QuoteController@show');
     });
+
+
+    $router->get('/films[/[{withQuotes}]]', 'FilmController@index');
     
 });

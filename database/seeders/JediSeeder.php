@@ -15,57 +15,27 @@ class JediSeeder extends Seeder
     public function run()
     {
         Db::table('jedi')->insert([
-            [
-                "nome" => "Yoda"
-            ],
-            [
-                "nome" => "Luke Skywalker"
-            ],
-            [
-                "nome" => "Anakin Skywalker"
-            ],
-            [
-                "nome" => "Boba Fett"
-            ],
-            [
-                "nome" => "D-3BO"
-            ],
-            [
-                "nome" => "Darth Fener"
-            ],
-            [
-                "nome" => "Finn"
-            ],
-            [
-                "nome" => "Han Solo"
-            ],
-            [
-                "nome" => "Imperatore Palpatine"
-            ],
-            [
-                "nome" => "Jabba The Hutt"
-            ],
-            [
-                "nome" => "Jango Fett"
-            ],
-            [
-                "nome" => "Lando Calrissian"
-            ],
-            [
-                "nome" => "Obi Wan Kenobi"
-            ],
-            [
-                "nome" => "Darth Sidious"
-            ],
-            [
-                "nome" => "Principessa Leila Organa"
-            ],
-            [
-                "nome" => "Qui-Gon Jinn"
-            ],
-            [
-                "nome" => "Rey"
-            ]
+            ["nome" => "Yoda"],
+            ["nome" => "Luke Skywalker"],
+            ["nome" => "Anakin Skywalker"],
+            ["nome" => "Boba Fett"],
+            ["nome" => "D-3BO"],
+            ["nome" => "Darth Fener"],
+            ["nome" => "Finn"],
+            ["nome" => "Han Solo"],
+            ["nome" => "Imperatore Palpatine"],
+            ["nome" => "Jabba The Hutt"],
+            ["nome" => "Jango Fett"],
+            ["nome" => "Lando Calrissian"],
+            ["nome" => "Obi Wan Kenobi"],
+            ["nome" => "Darth Sidious"],
+            ["nome" => "Principessa Leila Organa"],
+            ["nome" => "Qui-Gon Jinn"],
+            ["nome" => "Rey"],
+            ["nome" => "Conte Dooku"],
+            ["nome" => "Dexter Jettster"],
+            ["nome" => "Darth Maul"],
+            ["nome" => "Tarpals"],
         ]);
     }
 }

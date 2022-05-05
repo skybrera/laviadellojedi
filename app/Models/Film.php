@@ -18,7 +18,7 @@ class Film extends Model
     protected $fillable = ['titolo', 'anno'];
 
     
-    public function film(){
+    public function quotes(){
         return $this->hasMany(Quote::class);
     }
 }
