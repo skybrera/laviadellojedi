@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\JediController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1'], function () {
+Route::group(['prefix' => 'v1/'], function () {
 
     Route::group(['prefix' => 'jedi'], function () {
         Route::get('/', [JediController::class, "index"]);
-        Route::get('/withQuotes', [JediController::class, "withQuotes"]);
         Route::get('/{jediName}', [JediController::class, "show"]);
-        Route::get('/{jediName}/withQuotes', [JediController::class, "showWithQuotes"]);
     });
     
     Route::group(['prefix' => 'quotes'], function () {
@@ -36,6 +35,9 @@ Route::group(['prefix' => 'v1'], function () {
         Route::get('/{id}', [QuoteController::class, "show"]);
     });
 
-    Route::get('/films[/[{withQuotes}]]', [FilmController::class, "index"]);
-    
+    Route::group(['prefix' => 'films'], function () {
+        Route::get('/', [FilmController::class, "index"]);
+        Route::get('/{id}', [FilmController::class, "show"]);
+    });    
+
 });

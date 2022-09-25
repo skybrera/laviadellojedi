@@ -16,6 +16,45 @@
                 "summary": "Show All Star Wars Films",
                 "description": "Show All Star Wars Films",
                 "operationId": "/api/v1/films(GET)",
+                "parameters": [
+                    {
+                        "name": "withQuotes",
+                        "in": "query",
+                        "description": "Passing withQuotes as query string param return oll jedi with his quotes",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/films/{id}": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Show All Star Wars Films",
+                "description": "Show All Star Wars Films",
+                "operationId": "/api/v1/films/{id}(GET)",
+                "parameters": [
+                    {
+                        "name": "withQuotes",
+                        "in": "query",
+                        "description": "Passing withQuotes as query string param return oll jedi with his quotes",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -29,8 +68,20 @@
                     "Jedi"
                 ],
                 "summary": "Show all Jedi",
-                "description": "Show all Jedi",
+                "description": "Show all Jedi. \r\n     *          Passing withQuotes as query string param return oll jedi with his quotes",
                 "operationId": "/api/v1/jedi(GET)",
+                "parameters": [
+                    {
+                        "name": "withQuotes",
+                        "in": "query",
+                        "description": "Passing withQuotes as query string param return oll jedi with his quotes",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
@@ -38,19 +89,170 @@
                 }
             }
         },
-        "/api/v1/jedi/{name}(GET)": {
+        "/api/v1/jedi/{name}": {
             "get": {
                 "tags": [
                     "Jedi"
                 ],
                 "summary": "Show a specific Jedi",
-                "description": "Show a specific Jedi",
-                "operationId": "7e1ebede414fd8b268aadc5b4f877a60",
+                "description": "Show a specific Jedi. \r\n     *          Passing withQuotes as query string param return oll jedi with his quotes",
+                "operationId": "/api/v1/jedi/{name}(GET)",
+                "parameters": [
+                    {
+                        "name": "withQuotes",
+                        "in": "query",
+                        "description": "Passing withQuotes as query string param return oll jedi with his quotes",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "successful operation"
                     }
                 }
+            }
+        },
+        "/api/v1/quotes": {
+            "get": {
+                "tags": [
+                    "Quotes"
+                ],
+                "summary": "Show all quotes",
+                "description": "Show all quotes. \r\n     *          Passing withRelations as query string param return oll quotes with jedi and films",
+                "operationId": "/api/v1/quotes(GET)",
+                "parameters": [
+                    {
+                        "name": "withRelations",
+                        "in": "query",
+                        "description": "Passing withRelations as query string param return oll quotes with jedi and films",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/quotes/{id}": {
+            "get": {
+                "tags": [
+                    "Quotes"
+                ],
+                "summary": "Show all quotes",
+                "description": "Show a specific quotes. \r\n     *          Passing withRelations as query string param return oll quotes with jedi and films",
+                "operationId": "/api/v1/quotes/{id}(GET)",
+                "parameters": [
+                    {
+                        "name": "withRelations",
+                        "in": "query",
+                        "description": "Passing withRelations as query string param return oll quotes with jedi and films",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/quotes/random": {
+            "get": {
+                "tags": [
+                    "Quotes"
+                ],
+                "summary": "Show all quotes",
+                "description": "Show a random quotes. \r\n     *          Passing withRelations as query string param return oll quotes with jedi and films",
+                "operationId": "/api/v1/quotes/random(GET)",
+                "parameters": [
+                    {
+                        "name": "withRelations",
+                        "in": "query",
+                        "description": "Passing withRelations as query string param return oll quotes with jedi and films",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "example": "true"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Jedi": {
+                "properties": {
+                    "nome": {
+                        "title": "nome",
+                        "description": "nome",
+                        "type": "string",
+                        "format": "int64",
+                        "default": "",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            },
+            "Quote": {
+                "properties": {
+                    "jedi_id": {
+                        "title": "jedi_id",
+                        "description": "jedi_id",
+                        "type": "string",
+                        "format": "int64",
+                        "default": "",
+                        "example": "1"
+                    },
+                    "film_id": {
+                        "title": "film_id",
+                        "description": "film_id",
+                        "type": "string",
+                        "format": "int64",
+                        "default": "",
+                        "example": "1"
+                    },
+                    "quote": {
+                        "title": "quote",
+                        "description": "quote",
+                        "type": "string",
+                        "format": "int64",
+                        "default": "",
+                        "example": "1"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "parameters": {
+            "Authorization": {
+                "name": "Authorization",
+                "in": "header",
+                "description": "passing token from headers",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                },
+                "example": "Bearer 546wd3dsdas.sadzcxvnsd3e35rr3a.123lkfkr34z"
             }
         }
     }

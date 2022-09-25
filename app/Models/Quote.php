@@ -6,6 +6,38 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
+/**
+ * @OA\Schema(
+ *   schema="Quote",
+ *   @OA\Property(
+ *      format="int64",
+ *      type="string",
+ *      property="jedi_id",
+ *      title="jedi_id",
+ *      default="",
+ *      description="jedi_id",
+ *      example="1"
+ *   ),
+  *   @OA\Property(
+ *      format="int64",
+ *      type="string",
+ *      property="film_id",
+ *      title="film_id",
+ *      default="",
+ *      description="film_id",
+ *      example="1"
+ *   ),
+  *   @OA\Property(
+ *      format="int64",
+ *      type="string",
+ *      property="quote",
+ *      title="quote",
+ *      default="",
+ *      description="quote",
+ *      example="1"
+ *   ),
+ * )
+ */
 class Quote extends Model 
 {
     use HasFactory;
@@ -28,7 +60,7 @@ class Quote extends Model
     // }
 
     public function jedi(){
-        return $this->belongsTo(Jedi::class);
+        return $this->belongsToMany(Jedi::class);
     }
 
     public function film(){

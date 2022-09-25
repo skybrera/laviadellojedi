@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use App\Models\Film;
+use App\Http\Controllers\BaseController;
+use Illuminate\Http\Request;
 
-class FilmController extends Controller
+class FilmController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -26,31 +28,53 @@ class FilmController extends Controller
      *     summary="Show All Star Wars Films",
      *     description="Show All Star Wars Films",
      *     operationId="/api/v1/films(GET)",
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="withQuotes",
+     *          required=false,
+     *          description="Passing withQuotes as query string param return oll jedi with his quotes",
+     *          example="true",
+     *          @OA\Schema(type="boolean")
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
      *     ),
      * )
      */
-    public function index($withQuotes = false): JsonResponse{
-        $films = (!$withQuotes) ? Film::all() : Film::with('quotes')->get();
-
-        return response()->json([
-            "success" => true,
-            "message" => "",
-            "data" => $films
-        ], 200);
+    public function index(Request $request): JsonResponse{
+        $withQuotes = filter_var($request->query("withQuotes"), FILTER_VALIDATE_BOOLEAN);
+        $films = ($withQuotes) ? Film::with('quotes')->get() : Film::all();
+        
+        return $this->sedResponse(true, "", $films);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/films/{id}",
+     *     tags={"Films"},
+     *     summary="Show All Star Wars Films",
+     *     description="Show All Star Wars Films",
+     *     operationId="/api/v1/films/{id}(GET)",
+     *     @OA\Parameter(
+     *          in="query",
+     *          name="withQuotes",
+     *          required=false,
+     *          description="Passing withQuotes as query string param return oll jedi with his quotes",
+     *          example="true",
+     *          @OA\Schema(type="boolean")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *     ),
+     * )
+     */
+    public function show(Request $request, int $id): JsonResponse{
+        $withQuotes = filter_var($request->query("withQuotes"), FILTER_VALIDATE_BOOLEAN);
+        $film = ($withQuotes) ? Film::with('quotes')->find($id) : Film::find($id);
 
-    public function show( $id ): JsonResponse{
-        $film = Film::find($id);
-
-        return response()->json([
-            "success" => true,
-            "message" => "",
-            "data" => $film
-        ], 200);
+        return $this->sedResponse(true, "", $film);
     }
 
 
