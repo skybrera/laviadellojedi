@@ -19,6 +19,19 @@ class FilmController extends Controller
     }
 
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/films",
+     *     tags={"Films"},
+     *     summary="Show All Star Wars Films",
+     *     description="Show All Star Wars Films",
+     *     operationId="/api/v1/films(GET)",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *     ),
+     * )
+     */
     public function index($withQuotes = false): JsonResponse{
         $films = (!$withQuotes) ? Film::all() : Film::with('quotes')->get();
 
@@ -28,7 +41,6 @@ class FilmController extends Controller
             "data" => $films
         ], 200);
     }
-
 
 
     public function show( $id ): JsonResponse{
@@ -43,5 +55,5 @@ class FilmController extends Controller
 
 
     
-    
+
 }

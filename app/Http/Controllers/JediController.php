@@ -17,6 +17,19 @@ class JediController extends Controller
     }
 
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/jedi",
+     *     tags={"Jedi"},
+     *     summary="Show all Jedi",
+     *     description="Show all Jedi",
+     *     operationId="/api/v1/jedi(GET)",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *     ),
+     * )
+     */
     public function index(){
         return Jedi::all();
     }
@@ -27,6 +40,19 @@ class JediController extends Controller
     }
 
 
+    /**
+     * @OA\Get(
+     *     path="/api/v1/jedi/{name}",
+     *     tags={"Jedi"},
+     *     summary="Show a specific Jedi",
+     *     description="Show a specific Jedi",
+     *     path="/api/v1/jedi/{name}(GET)",
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *     ),
+     * )
+     */
     public function show( string $jediName ){
         return Jedi::where("nome", "=", $jediName)->get();
     }

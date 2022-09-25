@@ -1,0 +1,57 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "La via del Jedi API",
+        "contact": {
+            "email": "info@stefanosponsillo.net"
+        },
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/v1/films": {
+            "get": {
+                "tags": [
+                    "Films"
+                ],
+                "summary": "Show All Star Wars Films",
+                "description": "Show All Star Wars Films",
+                "operationId": "/api/v1/films(GET)",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/jedi": {
+            "get": {
+                "tags": [
+                    "Jedi"
+                ],
+                "summary": "Show all Jedi",
+                "description": "Show all Jedi",
+                "operationId": "/api/v1/jedi(GET)",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/v1/jedi/{name}(GET)": {
+            "get": {
+                "tags": [
+                    "Jedi"
+                ],
+                "summary": "Show a specific Jedi",
+                "description": "Show a specific Jedi",
+                "operationId": "7e1ebede414fd8b268aadc5b4f877a60",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    }
+}
