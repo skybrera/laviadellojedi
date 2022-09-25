@@ -1,8 +1,25 @@
-## API DOCUMENTATION
+# LA VIA DELLO JEDI ***API***
+Questo progetto è una semplice api per mostrare le citazioni di Star Wars (in italiano)
 
-### Swagger
+Ho migrato il progetto da Lumen 8 a Laravel 8 in quanto Lumen non riceverà ulteriori aggiornamenti.
+Per la richiesta di risorse del progetto, non ci sono sostanziali differenze tra l'utilizzo di Lumen e Laravel
+
+## INSTALLAZIONE
+- Clonare il progetto
+- run composer install
+- rum php artisan migrate
+- rum php artisan db:seed DatabaseSeeder
+- rum php artisan serve
+- enjoy!
+
+
+## API DOCUMENTATION
+la documentazione è generata con swagger e sara disponibile al percorso http://BASEPATH/api/documentation
+
+### Generare documentazione con Swagger
     php artisan l5-swagger:generate
-    http://127.0.0.1:8000/api/documentation
+
+------------------------------------------------------------------------------
 
 
 
