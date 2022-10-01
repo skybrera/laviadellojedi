@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @OA\Schema(
@@ -59,11 +60,11 @@ class Quote extends Model
     //     return $this->hasOne(Film::class);
     // }
 
-    public function jedi(){
+    public function jedi(): BelongsToMany{
         return $this->belongsToMany(Jedi::class);
     }
 
-    public function film(){
+    public function film(): BelongsTo{
         return $this->belongsTo(Film::class);
     }
 

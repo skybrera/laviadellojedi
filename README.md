@@ -15,6 +15,7 @@ Per la richiesta di risorse del progetto, non ci sono sostanziali differenze tra
 
 ## API DOCUMENTATION
 la documentazione è generata con swagger e sara disponibile al percorso http://BASEPATH/api/documentation
+es : https://www.laviadeljedi.it/api/documentation#
 
 ### Generare documentazione con Swagger
     php artisan l5-swagger:generate

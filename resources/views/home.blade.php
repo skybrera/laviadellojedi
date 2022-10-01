@@ -7,14 +7,14 @@
     <title>La Via del Jedi</title>
     <meta name="description" content="Una semplice API per la visualizzazion casuale di citazioni di Star Wars" />
     <meta name="keywords" content="" />
-    <link rel="icon" href="{{asset('images/ordine_jedi_icon.png')}}">
+    <link rel="icon" href="{{asset('public/images/ordine_jedi_icon.png')}}">
 
 
     <!-- <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> -->
-    <link rel="stylesheet" href="{{asset('assets/css/tailwind.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('public/assets/css/tailwind.min.css')}}"/>
     <!--Replace with your tailwind.css once created-->
     <!-- <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" /> -->
-    <link href="{{asset('assets/css/custom-forms.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('public/assets/css/custom-forms.min.css')}}" rel="stylesheet" />
     
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
@@ -28,7 +28,7 @@
 
   <body
     x-data="{ utilizzo: false, info: false}"
-    class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('header.png');">
+    class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url('public/header.png');">
     <div class="h-full">
       <!--Nav-->
       <div class="w-full container mx-auto">
@@ -115,7 +115,7 @@
 
         <!--Right Col-->
         <div class="w-full xl:w-3/5 p-12 overflow-hidden">
-          <img class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="images/Star_Wars_Logo.svg" />
+          <img class="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="public/images/Star_Wars_Logo.svg" />
         </div>
 
 
@@ -131,18 +131,19 @@
                   Per recuperare tutte le citazioni
                   <br>
                   <code class="inline-block">
-                      <button
+                      <a href="{{$basepath}}api/documentation#" 
                         class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
                         type="button"
                       >
-                      GET
-                      </button>
-                      {{$basepath}}api/v1/quotes
+                        documentazione al link: 
+                      </a>
+                      <br>
+                      {{$basepath}}api/documentation#
                   </code>
               </p>
             </div>
 
-            <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+            <!-- <div class="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
                 <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-center">
                     Per recuperare una citazione casuale
                     <br>
@@ -172,7 +173,7 @@
                     {{$basepath}}api/v1/films/true
                     </code>
                 </p>
-            </div>
+            </div> -->
         </div>
 
         <!--Footer-->
