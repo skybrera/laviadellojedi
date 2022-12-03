@@ -7,8 +7,14 @@
         },
         "version": "0.1"
     },
+    "servers": [
+        {
+            "url": "/api/v1",
+            "description": "Production server (uses live data)"
+        }
+    ],
     "paths": {
-        "/api/v1/films": {
+        "/films": {
             "get": {
                 "tags": [
                     "Films"
@@ -35,7 +41,7 @@
                 }
             }
         },
-        "/api/v1/films/{id}": {
+        "/films/{id}": {
             "get": {
                 "tags": [
                     "Films"
@@ -62,7 +68,7 @@
                 }
             }
         },
-        "/api/v1/jedi": {
+        "/jedi": {
             "get": {
                 "tags": [
                     "Jedi"
@@ -89,7 +95,7 @@
                 }
             }
         },
-        "/api/v1/jedi/{name}": {
+        "/jedi/{name}": {
             "get": {
                 "tags": [
                     "Jedi"
@@ -116,7 +122,7 @@
                 }
             }
         },
-        "/api/v1/quotes": {
+        "/quotes": {
             "get": {
                 "tags": [
                     "Quotes"
@@ -143,7 +149,7 @@
                 }
             }
         },
-        "/api/v1/quotes/{id}": {
+        "/quotes/{id}": {
             "get": {
                 "tags": [
                     "Quotes"
@@ -170,7 +176,7 @@
                 }
             }
         },
-        "/api/v1/quotes/random": {
+        "/quotes/random": {
             "get": {
                 "tags": [
                     "Quotes"

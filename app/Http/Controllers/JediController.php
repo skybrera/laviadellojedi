@@ -22,7 +22,7 @@ class JediController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/jedi",
+     *     path="/jedi",
      *     tags={"Jedi"},
      *     summary="Show all Jedi",
      *     description="Show all Jedi. 
@@ -57,7 +57,7 @@ class JediController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/jedi/{name}",
+     *     path="/jedi/{name}",
      *     tags={"Jedi"},
      *     summary="Show a specific Jedi",
      *     description="Show a specific Jedi. 

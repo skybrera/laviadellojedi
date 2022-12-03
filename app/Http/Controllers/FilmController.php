@@ -23,7 +23,7 @@ class FilmController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/films",
+     *     path="/films",
      *     tags={"Films"},
      *     summary="Show All Star Wars Films",
      *     description="Show All Star Wars Films",
@@ -51,7 +51,7 @@ class FilmController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/films/{id}",
+     *     path="/films/{id}",
      *     tags={"Films"},
      *     summary="Show All Star Wars Films",
      *     description="Show All Star Wars Films",

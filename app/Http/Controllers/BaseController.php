@@ -10,10 +10,15 @@ use Illuminate\Http\JsonResponse;
  * 
  * @OA\Info(
  *   title="La via del Jedi API",
- *   version="0.1",
+ *   version="1.0.1",
  *   @OA\Contact(
  *     email="info@stefanosponsillo.net"
  *   )
+ * ),
+ * 
+ * @OA\Server(
+ *     url="/api/v1",
+ *     description="Production server",
  * ),
  *
  * @OA\Parameter(

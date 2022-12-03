@@ -23,7 +23,7 @@ class QuoteController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/quotes",
+     *     path="/quotes",
      *     tags={"Quotes"},
      *     summary="Show all quotes",
      *     description="Show all quotes. 
@@ -52,7 +52,7 @@ class QuoteController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/quotes/{id}",
+     *     path="/quotes/{id}",
      *     tags={"Quotes"},
      *     summary="Show all quotes",
      *     description="Show a specific quotes. 
@@ -81,7 +81,7 @@ class QuoteController extends BaseController
 
     /**
      * @OA\Get(
-     *     path="/api/v1/quotes/random",
+     *     path="/quotes/random",
      *     tags={"Quotes"},
      *     summary="Show all quotes",
      *     description="Show a random quotes. 
